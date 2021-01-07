@@ -1,5 +1,6 @@
 package com.coinbase.wallet.core.util
 
+import DateAdapter
 import com.coinbase.wallet.core.jsonadapters.BigDecimalAdapter
 import com.coinbase.wallet.core.jsonadapters.BigIntegerAdapter
 import com.coinbase.wallet.core.jsonadapters.UIntAdapter
@@ -10,6 +11,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import java.math.BigDecimal
 import java.math.BigInteger
 import java.net.URL
+import java.util.*
 
 /**
  * JSON parser
@@ -72,6 +74,7 @@ object JSON {
             .add(BigDecimal::class.java, BigDecimalAdapter())
             .add(BigInteger::class.java, BigIntegerAdapter())
             .add(UInt::class.java, UIntAdapter())
+            .add(Date::class.java, DateAdapter())
 
         entries.forEach { builder.add(it.key, it.value) }
 
